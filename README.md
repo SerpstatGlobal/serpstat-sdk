@@ -1,6 +1,7 @@
 # serpstat/sdk
-The SDK library for Serpstat API
+![Serpstat](https://images.netpeak.ua/soft/serpstat-logo.png)
 
+**This is the official SDK library for the Serpstat API**
 
 ## Getting Started
 
@@ -53,6 +54,7 @@ try {
 
 | Method   | Info                          |
 |--------|----------------------------------|
+|CheckLimitsMethod|You can check the number of requests you can perform within your daily limit by using the command stats|
 | DomainInfoMethod | This report provides you with the number of keywords domain uses in SEO and PPC, shows its online visibility and other metrics.|
 | DomainHistoryMethod |This report provides you with the historical data on a domain’s number of keywords and visibility. |
  |DomainKeywordsMethod|This report shows keywords a domain ranks for in Google top 100 search results.|
