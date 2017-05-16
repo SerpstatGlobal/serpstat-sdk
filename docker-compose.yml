@@ -1,0 +1,13 @@
+version: '2'
+services:
+  php:
+    build: .
+    volumes:
+      - .:/code
+    ports:
+      - "9001:9000"
+    container_name: 'serpstat_sdk'
+    environment:
+      XDEBUG_CONFIG: "remote_host=172.17.0.1"
+      DOCKER_HOST: "tcp://localhost:4243"
+      PHP_IDE_CONFIG: "serverName=docker"
