@@ -49,7 +49,7 @@ class RelatedKeywordsMethod extends AbstractApiMethod
      * @param int $weight
      * @return $this
      */
-    protected function setWeight($weight)
+    public function setWeight($weight)
     {
         $weight = (int)$weight;
         if ($weight < static::WEIGHT_MIN) {
