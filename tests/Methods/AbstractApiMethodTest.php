@@ -151,7 +151,5 @@ class AbstractApiMethodTest extends PHPUnit_Framework_TestCase
             '/',
             $this->abstractApiMethod->__toString()
         );
-
-        // TODO: Create regex and test method using "assertStringMatchesFormat".
     }
 }
