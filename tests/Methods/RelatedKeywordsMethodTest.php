@@ -12,7 +12,9 @@ use Serpstat\Sdk\Methods\RelatedKeywordsMethod;
 
 class RelatedKeywordsMethodTest extends PHPUnit_Framework_TestCase
 {
-    const RELATED_KEYWORDS_WEIGHT = 25;
+    const RELATED_KEYWORDS_MIN_WEIGHT = 0;
+
+    const RELATED_KEYWORDS_MAX_WEIGHT = 25;
 
     /**
      * @var RelatedKeywordsMethod
@@ -23,7 +25,7 @@ class RelatedKeywordsMethodTest extends PHPUnit_Framework_TestCase
     {
         $this->relatedKeywordsMethod = new RelatedKeywordsMethod(
             'ad_keywords_method',
-            static::RELATED_KEYWORDS_WEIGHT
+            static::RELATED_KEYWORDS_MAX_WEIGHT
         );
     }
 
@@ -71,12 +73,40 @@ class RelatedKeywordsMethodTest extends PHPUnit_Framework_TestCase
         );
 
         $this->assertEquals(
-            static::RELATED_KEYWORDS_WEIGHT,
+            static::RELATED_KEYWORDS_MAX_WEIGHT,
             $this->relatedKeywordsMethod->getWeight()
         );
 
         $this->assertInternalType(
             IsType::TYPE_INT,
+            $this->relatedKeywordsMethod->getWeight()
+        );
+    }
+
+    public function testSetWeight()
+    {
+        $this->assertInstanceOf(
+            RelatedKeywordsMethod::class,
+            $this->relatedKeywordsMethod->setWeight(static::RELATED_KEYWORDS_MAX_WEIGHT)
+        );
+
+        $this->assertNotEmpty(
+            $this->relatedKeywordsMethod->setWeight(static::RELATED_KEYWORDS_MAX_WEIGHT)
+        );
+
+        $this->assertInternalType(
+            IsType::TYPE_OBJECT,
+            $this->relatedKeywordsMethod->setWeight(static::RELATED_KEYWORDS_MAX_WEIGHT)
+        );
+
+        $this->assertEquals(
+            RelatedKeywordsMethod::WEIGHT_MAX,
+            $this->relatedKeywordsMethod->getWeight()
+        );
+
+        $minWeight = $this->relatedKeywordsMethod->setWeight(static::RELATED_KEYWORDS_MIN_WEIGHT);
+        $this->assertEquals(
+            RelatedKeywordsMethod::WEIGHT_MIN,
             $this->relatedKeywordsMethod->getWeight()
         );
     }
