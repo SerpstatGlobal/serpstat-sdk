@@ -19,7 +19,6 @@ $keyword = 'keyword';
 $apiClient = new \Serpstat\Sdk\Core\ApiGuzzleHttpClient($config['token']);
 
 // create instance of any api method class
-// e.g. DomainKeywordsMethod
 // list of methods classes in folder src\Methods
 $apiMethod = new \Serpstat\Sdk\Methods\KeywordInfoMethod(
     $keyword,
