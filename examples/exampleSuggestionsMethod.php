@@ -10,7 +10,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 // configure your application
 $config = [
-    'token' => '19666fc1ae1724da1d5ea2f3a99d5f5a',
+    'token' => 'd9632fc1ae1724da4d5ea2f3a99d5f5f',
 ];
 
 $keywords = 'keywords';
@@ -18,8 +18,7 @@ $keywords = 'keywords';
 // init client with your serpstat api token
 $apiClient = new \Serpstat\Sdk\Core\ApiGuzzleHttpClient($config['token']);
 
-// create instance of any api method class
-// list of methods classes in folder src\Methods
+// create instance of api method class
 $apiMethod = new \Serpstat\Sdk\Methods\SuggestionsMethod(
     $keywords,
     \Serpstat\Sdk\Interfaces\IApiClient::SE_GOOGLE_RU
@@ -27,8 +26,9 @@ $apiMethod = new \Serpstat\Sdk\Methods\SuggestionsMethod(
 
 try {
     // try call api method
-    $response = $apiClient->call($apiMethod);
+    $response = $apiClient->call($apiMethod)->getResult();
 } catch (\Exception $e) {
     // catch api error
     $response = $e->getMessage();
 }
+var_dump($response);
