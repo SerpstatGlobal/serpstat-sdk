@@ -17,7 +17,7 @@ $config = [
 $domain = 'olx.ua';
 
 //pagination result page (optional)
-$page = 1;
+$additionalParams = ['page' => 1];
 
 // init client with your serpstat api token
 $apiClient = new \Serpstat\Sdk\Core\ApiGuzzleHttpClient($config['token']);
@@ -26,7 +26,7 @@ $apiClient = new \Serpstat\Sdk\Core\ApiGuzzleHttpClient($config['token']);
 $apiMethod = new \Serpstat\Sdk\Methods\GetSubDomainsMethod(
     $domain,
     \Serpstat\Sdk\Interfaces\IApiClient::SE_GOOGLE_UA,
-    $page
+    $additionalParams
 );
 
 try {
