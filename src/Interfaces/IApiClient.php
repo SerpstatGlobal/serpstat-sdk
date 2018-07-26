@@ -25,10 +25,17 @@ interface IApiClient
     const SE_GOOGLE_AU = 'g_au';
     const SE_GOOGLE_ZA = 'g_za';
     const SE_GOOGLE_KZ = 'g_kz';
+    const SE_GOOGLE_IT = 'g_it';
+    const SE_GOOGLE_ES = 'g_es';
+    const SE_GOOGLE_FR = 'g_fr';
+    const SE_GOOGLE_DE = 'g_de';
+    const SE_GOOGLE_NL = 'g_nl';
+    const SE_GOOGLE_BR = 'g_br';
 
     const SE_YANDEX_MSK = 'y_213';
     const SE_YANDEX_SPB = 'y_2';
     const SE_YANDEX_UA = 'y_187';
+    const SE_YANDEX_EKB = 'y_54';
 
     /**
      * @param IApiMethod $apiMethod
