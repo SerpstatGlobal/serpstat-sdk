@@ -14,7 +14,10 @@
         "guzzlehttp/guzzle": "6.2.3"
     },
     "autoload": {
-        "psr-4": { "Serpstat\\Sdk\\": "src/" }
+        "psr-4": {
+            "Serpstat\\Sdk\\": "src/",
+            "Serpstat\\Tests\\": "tests/"
+        }
     },
     "minimum-stability": "dev"
 }

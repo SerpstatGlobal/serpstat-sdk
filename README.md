@@ -66,6 +66,7 @@ try {
  |DomainUrlsMethod|/domain_urls|Returns the list of URLs within the analyzed domain. Also shows the number of keywords from top-100 for each URL.|
  |DomainsIntersectionMethod|/domains_intersection|Shows common keywords of up to 3 domains|
  |DomainsUniqKeywordsMethod|/domains_uniq_keywords|Shows unique keywords of a domain. Keywords that queried domain has in common with one or two other domains are removed from the list. |
+ |GetTopUrlsMethod|/get_top_urls|Shows top urls by domain.|
  |CompetitorsMethod|/competitors|The report lists all domains that rank for the given keyword in Google top 20 results |
  |KeywordsMethod|/keywords|This method uses a full text search to find all keywords that match the queried term. For every keyword found you’ll see its volume, CPC and level of competition. |
  |KeywordInfoMethod|/keyword_info|This report provides you with the keyword overview showing its volume, CPC and level of competition|

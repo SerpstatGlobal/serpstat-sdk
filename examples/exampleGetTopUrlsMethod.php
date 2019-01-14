@@ -6,37 +6,21 @@
  * Time: 12:21
  */
 
-require_once __DIR__ . '/vendor/autoload.php';
-
+require_once __DIR__ . '/../vendor/autoload.php';
 // configure your application
 $config = [
-    'token' => '5ef58df8d6a5ef19efa6b9d460f41806',
+    'token' => '1942ae9911cf1fab62314a5d63ec240e',
 ];
-
-//domain name
-$domain = 'olx.ua';
-
-//optional params
-$additionalParams =[
-    'page' => 1,                        //pagination result page
-    'order' => 'asc',                   //order (asc, desc)
-    'sort' => 'organic_keywords',];     /*sort by value of (can be sorted by - organic_keywords
-                                         *                                   - facebook_shares
-                                         *                                   - linkedin_shares
-                                         *                                   - google_shares
-                                         *                                   - potencial_traff
-                                         */
-
+$domain = 'allo.ua';
 // init client with your serpstat api token
 $apiClient = new \Serpstat\Sdk\Core\ApiGuzzleHttpClient($config['token']);
-
 // create instance of api method class
 $apiMethod = new \Serpstat\Sdk\Methods\GetTopUrlsMethod(
     $domain,
-    \Serpstat\Sdk\Interfaces\IApiClient::SE_GOOGLE_UA,
-    $additionalParams
+    \Serpstat\Sdk\Interfaces\IApiClient::SE_GOOGLE_RU,
+    \Serpstat\Sdk\Methods\GetTopUrlsMethod::ORDER_DESC,
+    \Serpstat\Sdk\Methods\GetTopUrlsMethod::SORT_ORGANIC_KEYWORD
 );
-
 try {
     // try call api method
     $response = $apiClient->call($apiMethod)->getResult();
