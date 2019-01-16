@@ -9,8 +9,6 @@
 
 namespace Serpstat\Sdk\Core;
 
-
-use Psr\Http\Message\ResponseInterface;
 use Serpstat\Sdk\Exceptions\ParseResponseException;
 use Serpstat\Sdk\Interfaces\IApiResponse;
 
@@ -57,16 +55,6 @@ class ApiResponse implements IApiResponse
         $this->resultToArray = $resultToArray;
         $this->parseResponse();
         ApiErrorHandler::handle($this);
-    }
-
-    /**
-     * @param ResponseInterface $response
-     * @param bool $resultToArray
-     * @return ApiResponse
-     */
-    public static function fromGuzzleResponse(ResponseInterface $response, $resultToArray = true)
-    {
-        return new static((string)$response->getBody(), $resultToArray);
     }
 
     /**

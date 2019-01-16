@@ -12,12 +12,16 @@ use Serpstat\Sdk\Interfaces\IApiResponse;
 
 class ApiResponseTest extends PHPUnit_Framework_TestCase
 {
+    use \Serpstat\Tests\EasyMockObjectTrait;
+
     const REQUEST_JSON_STATUS_CODE_KEY = 'status_code';
     const REQUEST_JSON_STATUS_CODE_VALUE = 200;
     const REQUEST_JSON_STATUS_MESSAGE_KEY = 'status_msg';
     const REQUEST_JSON_STATUS_MESSAGE_VALUE = 'Status message.';
     const REQUEST_JSON_RESULT_KEY = 'result';
     const REQUEST_JSON_RESULT_VALUE = 'Result message.';
+
+    const INVALID_REQUEST_JSON = '{a : "a"}';
 
     protected static $requestJson = [
         self::REQUEST_JSON_STATUS_CODE_KEY => self::REQUEST_JSON_STATUS_CODE_VALUE,
@@ -74,11 +78,6 @@ class ApiResponseTest extends PHPUnit_Framework_TestCase
             $propertiesNames,
             ApiResponse::class
         );
-    }
-
-    public function testFromGuzzleResponse()
-    {
-//        ApiResponse::fromGuzzleResponse(); // TODO: Finish test.
     }
 
     public function testParseObject()
@@ -203,11 +202,19 @@ class ApiResponseTest extends PHPUnit_Framework_TestCase
         );
     }
 
+    public function testDecodeResponse()
+    {
+        $this->expectException(\Serpstat\Sdk\Exceptions\ParseResponseException::class);
+        new ApiResponse(
+            self::INVALID_REQUEST_JSON,
+            false
+        );
+    }
+
     public function allPublicMethodsNamesDataProvider()
     {
         return [
             ['__construct'],
-            ['fromGuzzleResponse'],
             ['getStatusCode'],
             ['getStatusMsg'],
             ['__toString'],
