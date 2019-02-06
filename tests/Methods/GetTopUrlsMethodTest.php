@@ -66,22 +66,34 @@ class GetTopUrlsMethodTest extends PHPUnit_Framework_TestCase
         );
     }
 
-    public function testGetUrlQueryParamsArray()
+    /**
+     * @coversNothing
+     */
+    public function testClassHasAttribute()
     {
         $this->assertClassHasAttribute(
             'query',
             GetTopUrlsMethod::class
         );
+    }
 
+    public function testGetUrlQueryParamsNotEmpty()
+    {
         $this->assertNotEmpty(
             $this->getTopUrlsMethod->getUrlQueryParamsArray()
         );
+    }
 
+    public function testGetUrlQueryParamsResultType()
+    {
         $this->assertInternalType(
             IsType::TYPE_ARRAY,
             $this->getTopUrlsMethod->getUrlQueryParamsArray()
         );
+    }
 
+    public function testGetUrlQueryParamsResultHasKey()
+    {
         $this->assertArrayHasKey(
             GetTopUrlsMethod::PARAM_QUERY,
             $this->getTopUrlsMethod->getUrlQueryParamsArray()
