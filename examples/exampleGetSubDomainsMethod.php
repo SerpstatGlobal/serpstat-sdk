@@ -2,25 +2,33 @@
 /**
  * Created by PhpStorm.
  * User: escobar
- * Date: 22.05.18
- * Time: 12:21
+ * Date: 21.05.18
+ * Time: 12:27
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
+
 // configure your application
 $config = [
-    'token' => '1942ae9911cf1fab62314a5d63ec240e',
+    'token' => '5ef58df8d6a5ef19efa6b9d460f41806',
 ];
-$domain = 'allo.ua';
+
+//domain name
+$domain = 'olx.ua';
+
+//pagination result page (optional)
+$additionalParams = ['page' => 1];
+
 // init client with your serpstat api token
 $apiClient = new \Serpstat\Sdk\Core\ApiGuzzleHttpClient($config['token']);
+
 // create instance of api method class
-$apiMethod = new \Serpstat\Sdk\Methods\GetTopUrlsMethod(
+$apiMethod = new \Serpstat\Sdk\Methods\GetSubDomainsMethod(
     $domain,
-    \Serpstat\Sdk\Interfaces\IApiClient::SE_GOOGLE_RU,
-    \Serpstat\Sdk\Methods\GetTopUrlsMethod::ORDER_DESC,
-    \Serpstat\Sdk\Methods\GetTopUrlsMethod::SORT_ORGANIC_KEYWORD
+    \Serpstat\Sdk\Interfaces\IApiClient::SE_GOOGLE_UA,
+    $additionalParams
 );
+
 try {
     // try call api method
     $response = $apiClient->call($apiMethod)->getResult();

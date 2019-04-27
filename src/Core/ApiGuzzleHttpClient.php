@@ -45,7 +45,7 @@ class ApiGuzzleHttpClient implements IApiClient
     public function call(IApiMethod $apiMethod, $resultToArray = true)
     {
         $httpResponse = $this->httpClient->get($this->buildApiUrl($apiMethod));
-        return ApiResponse::fromGuzzleResponse($httpResponse, $resultToArray);
+        return new ApiResponse((string)$httpResponse->getBody(), $resultToArray);
     }
 
     /**

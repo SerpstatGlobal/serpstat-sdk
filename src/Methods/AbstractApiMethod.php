@@ -33,11 +33,13 @@ abstract class AbstractApiMethod implements IApiMethod
     /**
      * @param string $query
      * @param string $searchEngine
+     * @param array $additionalParams
      */
-    public function __construct($query, $searchEngine = IApiClient::SE_GOOGLE_US)
+    public function __construct($query, $searchEngine = IApiClient::SE_GOOGLE_US, $additionalParams = [])
     {
         $this->query = $query;
         $this->searchEngine = $searchEngine;
+        if(!empty($additionalParams)) $this->additionalParams = $additionalParams;
     }
 
     /**

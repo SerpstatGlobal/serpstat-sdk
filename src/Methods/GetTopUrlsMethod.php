@@ -1,10 +1,10 @@
 <?php
 /**
- * @author Doctor <doctor.netpeak@gmail.com>
- *
- *
+ * Created by PhpStorm.
+ * User: escobar
  * Date: 26.08.2018
  * Time: 15:44
+ * @author Doctor <doctor.netpeak@gmail.com>
  */
 
 namespace Serpstat\Sdk\Methods;
