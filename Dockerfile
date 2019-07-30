@@ -1,4 +1,4 @@
-FROM php:5.5-fpm
+FROM php:5.6-fpm
 
 RUN mkdir /root/.ssh
 RUN ln -s /code/docker_confs/id_rsa /root/.ssh/id_rsa
